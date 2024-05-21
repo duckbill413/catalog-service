@@ -20,6 +20,10 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    set('springCloudVersion', "2021.0.8")
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-test'
@@ -31,6 +35,10 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-webflux'
     // annotation processor
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+}
+
+bootRun {
+    systemProperty 'spring.profiles.active', 'testdata'
 }
 
 tasks.named('test') {
